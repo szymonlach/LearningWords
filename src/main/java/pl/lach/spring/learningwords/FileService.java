@@ -1,5 +1,6 @@
 package pl.lach.spring.learningwords;
 
+import org.springframework.stereotype.Component;
 import pl.lach.spring.learningwords.model.Entry;
 
 import java.io.BufferedWriter;
@@ -10,8 +11,9 @@ import java.nio.file.Paths;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Component
 public class FileService {
-    private String fileName = "data.csv";
+    private String fileName = "src/data.txt";
 
     public List<Entry> readAllFile() throws IOException {
         return Files.readAllLines(Paths.get(fileName))

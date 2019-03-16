@@ -1,6 +1,6 @@
 pies;dog
 kot;cat
-samochód;car
+samochod;car
 okno;window
 czekolada;chocolate
-jêzyk;language
+jezyk;language

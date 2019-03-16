@@ -5,21 +5,31 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.Set;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import pl.lach.spring.learningwords.FileService;
 import pl.lach.spring.learningwords.model.*;
 import pl.lach.spring.learningwords.repository.*;
 
+@Controller
 public class LinguController {
     private static final int UNDEFINED = -1;
     private static final int ADD_ENTRY = 0;
     private static final int TEST = 1;
     private static final int CLOSE_APP = 2;
 
-    private EntryRepository entryRepository = new EntryRepository();
-    private FileService fileService = new FileService();
-    private Scanner scanner = new Scanner(System.in);
+    private EntryRepository entryRepository;
+    private FileService fileService;
+    private Scanner scanner;
 
-    void mainLoop() {
+    @Autowired
+    public LinguController(EntryRepository entryRepository, FileService fileService, Scanner scanner) {
+        this.entryRepository = entryRepository;
+        this.fileService = fileService;
+        this.scanner = scanner;
+    }
+
+    public void mainLoop() {
         System.out.println("Witaj w aplikacji LinguApp");
         int option = UNDEFINED;
         while (option != CLOSE_APP) {
