@@ -1,5 +1,6 @@
 package pl.lach.spring.learningwords;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import pl.lach.spring.learningwords.model.Entry;
 
@@ -13,7 +14,12 @@ import java.util.stream.Collectors;
 
 @Component
 public class FileService {
-    private String fileName = "data.txt";
+
+    private String fileName;
+
+    public FileService(@Value("${filename}") String fileName) {
+        this.fileName = fileName;
+    }
 
     public List<Entry> readAllFile() throws IOException {
         return Files.readAllLines(Paths.get(fileName))
