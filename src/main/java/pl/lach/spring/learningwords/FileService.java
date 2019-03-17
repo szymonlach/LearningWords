@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
 
 @Component
 public class FileService {
-    private String fileName = "src/data.txt";
+    private String fileName = "data.txt";
 
     public List<Entry> readAllFile() throws IOException {
         return Files.readAllLines(Paths.get(fileName))
