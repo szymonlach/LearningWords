@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Bean;
 import pl.lach.spring.learningwords.controller.LinguController;
 
 import java.util.Scanner;
+import java.util.stream.Stream;
 
 @SpringBootApplication
 public class LearningwordsApplication {
